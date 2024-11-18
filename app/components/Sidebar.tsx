@@ -1,11 +1,18 @@
-export default function Sidebar() {
+import React from "react";
+
+interface SidebarProps{
+    open : boolean,
+    onClose : () => void
+}
+
+const Sidebar : React.FC<SidebarProps> = (props) => {
     return (
         <>
-            <div className="drawer absolute z-50 drawer-close">
+            <div className={`drawer absolute z-50 ${props.open? "drawer-open": "drawer-close"}`}>
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content flex flex-col items-center justify-center" onClick={props.onClose}>
                     {/* Page content here */}
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button hidden">
                         Open drawer
                     </label>
                 </div>
@@ -21,3 +28,5 @@ export default function Sidebar() {
         </>
     )
 }
+
+export default Sidebar

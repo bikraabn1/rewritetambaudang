@@ -1,14 +1,24 @@
+'use client'
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import LineChart from "./components/Chart";
 
 export default function Home() {
+  const [toggle, setToggle] = useState(false)
 
-  
+  function ToggleHandler() : void{
+    setToggle(prevToggle => !prevToggle)
+  }
+
   return (
-    <>
-      <Sidebar />
-      <Navbar onClick={}/>
-    </>
+    <div>
+      <Sidebar open = {toggle} onClose={ToggleHandler}/>
+      <Navbar onOpen={ToggleHandler}/>
+      <div>
+        <LineChart  />
+      </div>
+    </div>
     
   );
 }
