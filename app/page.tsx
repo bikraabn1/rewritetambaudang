@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import LineChart from "./components/Chart";
+import Chart from "./components/Chart";
 
 export default function Home() {
   const [toggle, setToggle] = useState(false)
@@ -16,7 +16,7 @@ export default function Home() {
       <Sidebar open = {toggle} onClose={ToggleHandler}/>
       <Navbar onOpen={ToggleHandler}/>
       <div>
-        <LineChart  />
+        <Chart />
       </div>
     </div>
     
