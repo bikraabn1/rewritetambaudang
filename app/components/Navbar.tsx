@@ -6,9 +6,9 @@ interface NavbarProps {
 
 export default function Navbar(props: NavbarProps) {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-200" onClick={props.onOpen}>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost" onClick={props.onOpen}>
+        <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -23,7 +23,7 @@ export default function Navbar(props: NavbarProps) {
         </button>
       </div>
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Tambak Udang</a>
       </div>
       <div className="flex-none">
         <ThemeController />
