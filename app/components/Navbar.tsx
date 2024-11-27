@@ -6,7 +6,7 @@ interface NavbarProps {
 
 export default function Navbar(props: NavbarProps) {
   return (
-    <div className="navbar bg-base-200" onClick={props.onOpen}>
+    <div className="navbar bg-base-200">
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
           <svg
@@ -22,7 +22,7 @@ export default function Navbar(props: NavbarProps) {
           </svg>
         </button>
       </div>
-      <div className="flex-1">
+      <div className="flex-1" onClick={props.onOpen}>
         <a className="btn btn-ghost text-xl">Tambak Udang</a>
       </div>
       <div className="flex-none">

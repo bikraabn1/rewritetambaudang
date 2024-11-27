@@ -14,10 +14,12 @@ const Dashboard : React.FC = () => {
 
     return (
         <>
-            <div className="hero bg-base-200 outline outline-1 min-w-[100dvw] min-h-screen flex flex-row justify-center items-start rounded-lg ">
-                <div>
-                    <Card data={dataForChart} dataKey="ph"/>
-                </div>
+            <div className="hero bg-base-200 min-w-[100dvw] min-h-screen flex flex-row justify-start items-start rounded-lg ">
+                <Card 
+                    data={dataForChart} 
+                    dataKey="ph" 
+                    title="ph"
+                />
             </div>
         </>
     )
