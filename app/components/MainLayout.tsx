@@ -1,31 +1,26 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import Board from "../dahsboard/page";
-import { WaterQualityContext } from "@/lib/WaterQualityContext";
 import Dashboard from "../dahsboard/page";
+
 export default function MainLayout() {
-    const context = useContext(WaterQualityContext)
-
-    // Check if context is undefined
-    if (!context) {
-        return <div>Loading...</div>; // or handle the error appropriately
-    }
-
-    const {data, loading, error} = context
 
     const [toggle, setToggle] = useState(false)
 
-    function ToggleHandler(): void {
-        setToggle(prevToggle => !prevToggle)
+    function OpenSideHandler(){
+        setToggle(true)
+        console.log("side bar open")
     }
 
-    console.log(data)
+    function CloseSideHandler(){
+        setToggle(false)
+        console.log("sidebar closed")
+    }
 
     return (
         <div>
-            <Sidebar open={toggle} onClose={ToggleHandler}>
-                <Navbar onOpen={ToggleHandler} />
+            <Sidebar open={toggle} onClose={CloseSideHandler}>
+                <Navbar onOpen={OpenSideHandler} />
                 <div>
                     <Dashboard />
                 </div>

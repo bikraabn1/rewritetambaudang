@@ -10,11 +10,9 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     });
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const [socket, setSocket] = useState<WebSocket | null>(null);
 
     useEffect(() => {
         const socket = new WebSocket('ws://localhost:5000/');
-        setSocket(socket);
 
         socket.onopen = () => {
             console.log("WebSocket connection established");
@@ -26,9 +24,10 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 const res: WaterQualityData = JSON.parse(event.data);
                 setData(prevData => {
                     const updatedData = [...prevData, res];
+                    const latestData = updatedData.slice(-100)
                     // Save updated data to local storage
-                    localStorage.setItem('waterQualityData', JSON.stringify(updatedData));
-                    return updatedData;
+                    localStorage.setItem('waterQualityData', JSON.stringify(latestData));
+                    return latestData;
                 });
             } catch (e) {
                 setError("Failed to parse incoming data: " + e);

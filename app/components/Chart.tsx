@@ -1,5 +1,5 @@
 "use client"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 
 interface ChartProps{
   data: any[],
@@ -9,10 +9,9 @@ interface ChartProps{
 export default function Chart(props : ChartProps) {
  
   return (
-      <ResponsiveContainer width={600} height={500}>
-        <LineChart
+      <LineChart
           width={500}
-          height={300}
+          height={400}
           data={props.data}
           margin={{
             top: 0,
@@ -23,10 +22,9 @@ export default function Chart(props : ChartProps) {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis/>
           <Tooltip />
           <Line type="monotone" dataKey={props.dataKey} stroke="#8884d8"  />
         </LineChart>
-      </ResponsiveContainer>
   )
 }

@@ -1,11 +1,31 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 
 const ThemeController: React.FC = () => {
+    const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
+
+    useEffect(()=> {
+        const savedTheme = localStorage.getItem('theme')
+
+        if(savedTheme){
+            setIsDarkTheme(savedTheme === 'luxury')
+            document.documentElement.setAttribute('data-theme', savedTheme)
+            return
+        }
+
+    },[])
+
+    const themeHandler = () => {
+        const newTheme = isDarkTheme ? 'cupcake' : 'luxury'
+        setIsDarkTheme(!isDarkTheme)
+        document.documentElement.setAttribute('data-theme', newTheme)
+        localStorage.setItem('theme', newTheme)
+    }
+
     return (
         <>
             <label className="swap swap-rotate p-2">
                 {/* this hidden checkbox controls the state */}
-                <input type="checkbox" className="theme-controller" value="luxury" />
+                <input type="checkbox" className="theme-controller" checked={isDarkTheme} onChange={themeHandler} />
 
                 {/* sun icon */}
                 <svg

@@ -1,12 +1,16 @@
+'use client'
 import ThemeController from "./ThemeController"
+import { usePathname } from "next/navigation"
 
 interface NavbarProps {
   onOpen: () => void,
 }
 
 export default function Navbar(props: NavbarProps) {
+  // const pathname = usePathname()
+  
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar bg-base-200 h-[10dvh]" onClick={props.onOpen}>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
           <svg
@@ -22,7 +26,7 @@ export default function Navbar(props: NavbarProps) {
           </svg>
         </button>
       </div>
-      <div className="flex-1" onClick={props.onOpen}>
+      <div className="flex-1">
         <a className="btn btn-ghost text-xl">Tambak Udang</a>
       </div>
       <div className="flex-none">
