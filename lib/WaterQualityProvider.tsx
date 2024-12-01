@@ -5,8 +5,11 @@ import { WaterQualityContext, WaterQualityData } from "./WaterQualityContext";
 const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [data, setData] = useState<WaterQualityData[]>(() => {
         // Retrieve data from local storage on initial load
-        const storedData = localStorage.getItem('waterQualityData');
-        return storedData ? JSON.parse(storedData) : [];
+        if (typeof window !== 'undefined') {
+            const storedData = localStorage.getItem('waterQualityData');
+            return storedData ? JSON.parse(storedData) : [];
+        }
+        return [];
     });
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
