@@ -1,11 +1,17 @@
 import React from "react";
+import Link from "next/link";
 
 interface SidebarProps {
     children: React.ReactNode;
 }
 
 const Sidebar: React.FC<SidebarProps> = (props) => {
-
+    const path = [
+        { name: 'Home', path: '/' },
+        { name: 'Details', path: '/details' },
+        { name: 'PH Details', path: '/details/ph' },
+        { name: 'TDS Details', path: '/details/tds' },
+    ]
     return (
         <div className="drawer">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -16,9 +22,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                     <h2 className="w-full text-center text-2xl font-semibold py-5">Tambak Udang</h2>
-                    {/* Sidebar content here */}
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    { path.map((item, index) => <Link href={item.path} key={index}>{item.name}</Link>) }
                 </ul>
             </div>
         </div>

@@ -16,7 +16,7 @@ const DashboardHeader: React.FC = () => {
     const latestData: WaterQualityData | undefined = data[data.length - 1]
 
     useEffect(() => {
-        if (latestData) {
+        if (latestData && latestData.time) {
             const date = new Date(latestData.time);
             const formattedTime = `${String(date.getUTCHours()).padStart(2, '0')}:${String(date.getUTCMinutes()).padStart(2, '0')}:${String(date.getUTCSeconds()).padStart(2, '0')}`;
             setTime(formattedTime);

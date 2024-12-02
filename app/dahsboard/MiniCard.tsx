@@ -11,7 +11,7 @@ const MiniCard : React.FC<MiniCardProps> = (props) => {
                 <div className="card-body">
                     <div className="card-actions justify-start">
                         <p>{props.text}</p>
-                        <p className="flex-grow text-center" >{props.data}</p>
+                        <p className="flex-grow text-center">{props.data}</p>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,20 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { WaterQualityContext, WaterQualityData } from "./WaterQualityContext";
+import Loading from "@/app/components/Loading";
 
 const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [data, setData] = useState<WaterQualityData[]>(() => {
-        // Retrieve data from local storage on initial load
-        if (typeof window !== 'undefined') {
-            const storedData = localStorage.getItem('waterQualityData');
-            return storedData ? JSON.parse(storedData) : [];
-        }
-        return [];
-    });
+    const [data, setData] = useState<WaterQualityData[]>([])
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const storedData = localStorage.getItem('waterQualityData');
+        if (storedData) {
+            setData(JSON.parse(storedData));
+        }
+        setLoading(false)
+    }, []);
 
     useEffect(() => {
         const socket = new WebSocket('ws://localhost:5000/');
@@ -28,7 +30,6 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 setData(prevData => {
                     const updatedData = [...prevData, res];
                     const latestData = updatedData.slice(-100)
-                    // Save updated data to local storage
                     localStorage.setItem('waterQualityData', JSON.stringify(latestData));
                     return latestData;
                 });
@@ -50,6 +51,12 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             socket.close();
         };
     }, []);
+
+    if(loading){
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <WaterQualityContext.Provider value={{ data, loading, error }}>
