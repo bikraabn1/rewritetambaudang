@@ -22,7 +22,9 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                     <h2 className="w-full text-center text-2xl font-semibold py-5">Tambak Udang</h2>
-                    { path.map((item, index) => <Link href={item.path} key={index}>{item.name}</Link>) }
+                    <div className="flex flex-col gap-1">
+                        { path.map((item, index) => <Link href={item.path} key={index} className="font-medium hover:bg-base-300 rounded-xl py-4 px-4">{item.name}</Link>) }
+                    </div>
                 </ul>
             </div>
         </div>

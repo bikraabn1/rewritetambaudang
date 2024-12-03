@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import MiniCard from "./MiniCard"
+import Loading from "../components/Loading"
 import { WaterQualityContext } from "@/lib/WaterQualityContext"
 import { WaterQualityData } from "@/lib/WaterQualityContext"
 
@@ -8,7 +9,7 @@ const DashboardHeader: React.FC = () => {
     const [time, setTime] = useState('')
 
     if (!context) {
-        return <div>Loading...</div>
+        return <Loading  />
     }
 
     const { data } = context
