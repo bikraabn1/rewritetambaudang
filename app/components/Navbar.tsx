@@ -8,14 +8,21 @@ export default function Navbar() {
   let pathname = usePathname()
 
   useEffect(() => {
-    if (pathname == "/") {
-      pathname = 'dashboard'
-    }
+    // Format pathname: jika root, ganti dengan 'dashboard'
+    const formattedPathName = pathname === '/' ? 'dashboard' : pathname;
 
-    const formattedSideBarTitle = pathname.slice(0, 0) + pathname.charAt(0).toUpperCase() + pathname.slice(1)
+    // Temukan indeks terakhir dari '/' dan potong string
+    const lastSlashIndex = formattedPathName.lastIndexOf('/');
+    const trimmedPathName = lastSlashIndex !== -1 ? formattedPathName.slice(0, lastSlashIndex) : formattedPathName;
 
-    setSidebarTitle(formattedSideBarTitle)
-  }, [pathname])
+    // Jika pathname kosong setelah pemotongan, set ke 'dashboard'
+    const finalPathName = trimmedPathName === '' ? 'dashboard' : trimmedPathName.replace('/', '');
+
+    // Format judul sidebar dengan huruf pertama kapital
+    const formattedSideBarTitle = finalPathName.charAt(0).toUpperCase() + finalPathName.slice(1);
+
+    setSidebarTitle(formattedSideBarTitle);
+  }, [pathname]);
 
   console.log(pathname)
 

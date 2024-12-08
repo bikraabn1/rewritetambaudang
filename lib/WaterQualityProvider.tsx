@@ -15,13 +15,13 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
         const loadingTimeout = setTimeout(() => {
             setLoading(false);
-        }, 1000); 
+        }, 1500); 
 
         return () => clearTimeout(loadingTimeout);
     }, []);
 
     useEffect(() => {
-        const socket = new WebSocket('ws://160.19.166.42:1880/ws');
+        const socket = new WebSocket('ws://localhost:5000');
 
         socket.onopen = () => {
             console.log("WebSocket connection established");

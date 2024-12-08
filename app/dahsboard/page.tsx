@@ -1,3 +1,5 @@
+'use client'
+
 import Card from "../components/Card"
 import { useContext } from "react"
 import { WaterQualityContext, WaterQualityContextType } from "@/lib/WaterQualityContext"
@@ -9,7 +11,7 @@ const Dashboard: React.FC = () => {
         throw new Error('Dashboard error entahlah kenapa')
     }
 
-    const { data, loading, error } = context
+    const { data } = context
 
     const dataForChart = data.slice(-10)
 

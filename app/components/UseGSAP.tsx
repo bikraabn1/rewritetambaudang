@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef, MutableRefObject } from "react";
 
 type UseGSAPReturn = MutableRefObject<HTMLDivElement | null>;

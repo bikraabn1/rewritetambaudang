@@ -1,7 +1,11 @@
+import MainLayout from "@/app/components/MainLayout";
+
 export default function phDetails(){
     return (
         <>
-            ini halaman detail tds
+            <MainLayout>
+                <div>ini halaman tds</div>
+            </MainLayout>
         </>
     )
 }

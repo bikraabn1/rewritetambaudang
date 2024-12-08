@@ -1,3 +1,4 @@
+'use client'
 import { useGSAP } from "./UseGSAP"
 import gsap from "gsap"
 import { useEffect } from "react"

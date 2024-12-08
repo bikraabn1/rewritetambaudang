@@ -1,3 +1,4 @@
+'use client'
 import React, { useContext, useState, useEffect } from "react"
 import MiniCard from "./MiniCard"
 import Loading from "../components/Loading"
