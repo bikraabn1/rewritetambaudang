@@ -1,19 +1,20 @@
 'use client'
+import React from "react";
 import WaterQualityProvider from "@/lib/WaterQualityProvider";
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./dahsboard/page";
-import Details from "./details/page";
 
-export default function Home() {
+const  Home = () => {
   return (
     <div>
       <WaterQualityProvider>
         <MainLayout>
-          <Dashboard />
-          <Details  />
+          <Dashboard/>
         </MainLayout>
       </WaterQualityProvider>
     </div>
 
   );
 }
+
+export default Home
