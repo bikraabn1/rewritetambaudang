@@ -1,5 +1,7 @@
+'use client'
 import React, { useState, useEffect } from "react";
 import { WaterQualityContext, WaterQualityData } from "./WaterQualityContext";
+import Loading from "@/app/components/Loading";
 
 const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [data, setData] = useState<WaterQualityData[]>([])
@@ -8,13 +10,12 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const [socket, setSocket] = useState<WebSocket | null>(null);
 
     useEffect(() => {
-        // Reconnection logicAaeiuy
+        // Reconnection logic
         const connectWebSocket = () => {
             const newSocket = new WebSocket('ws://localhost:5000');
 
             newSocket.onopen = () => {
                 console.log("WebSocket connection established");
-                setLoading(false);
                 setError(null);
                 setSocket(newSocket);
             };
@@ -28,6 +29,7 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                         localStorage.setItem('waterQualityData', JSON.stringify(latestData));
                         return latestData;
                     });
+                    setLoading(false)
                 } catch (e) {
                     setError("Failed to parse incoming data: " + e);
                 }
@@ -58,6 +60,11 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             }
         };
     }, []); // Empty dependency array to run only once
+
+    if (loading) {
+        console.log("loading...")
+        return <Loading />;
+    }
 
     return (
         <WaterQualityContext.Provider value={{ data, loading, error }}>
