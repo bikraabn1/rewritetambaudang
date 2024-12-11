@@ -14,7 +14,7 @@ export default function MainLayout({children} : MainLayoutProps) {
         <div>
             <Sidebar>
                 <Navbar />
-                <div>
+                <div className="outline min-w[100dvw]">
                     {children}
                 </div>
             </Sidebar>
