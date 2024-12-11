@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WaterQualityProvider from "@/lib/WaterQualityProvider";
+import WaterQualityProvider from "@/app/context/WaterQualityProvider";
 import localFont from "next/font/local";
 import "./globals.css";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import WaterQualityProvider from "@/lib/WaterQualityProvider";
+import WaterQualityProvider from "@/app/context/WaterQualityProvider";
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./dahsboard/page";
 

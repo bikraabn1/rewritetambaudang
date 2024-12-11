@@ -1,17 +1,11 @@
 'use client'
-
 import Card from "../components/Card"
-import { useContext } from "react"
-import { WaterQualityContext, WaterQualityContextType } from "@/lib/WaterQualityContext"
+import useWaterQualityContext from "@/app/hooks/useWaterQualityContext"
 import DashboardHeader from "./DashboardHeader"
 
 const Dashboard: React.FC = () => {
-    const context = useContext<WaterQualityContextType | undefined>(WaterQualityContext)
-    if (!context) {
-        throw new Error('Dashboard error entahlah kenapa')
-    }
-
-    const { data } = context
+    
+    const { data } = useWaterQualityContext()
 
     const dataForChart = data.slice(-10)
 

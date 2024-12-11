@@ -2,8 +2,8 @@
 import React, { useContext, useState, useEffect } from "react"
 import MiniCard from "./MiniCard"
 import Loading from "../components/Loading"
-import { WaterQualityContext } from "@/lib/WaterQualityContext"
-import { WaterQualityData } from "@/lib/WaterQualityContext"
+import { WaterQualityContext } from "@/app/context/WaterQualityContext"
+import { WaterQualityData } from "@/app/context/WaterQualityContext"
 
 const DashboardHeader: React.FC = () => {
     const context = useContext(WaterQualityContext)
