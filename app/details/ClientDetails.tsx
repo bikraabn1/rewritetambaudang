@@ -1,10 +1,11 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import MainLayout from "../components/MainLayout";
-import useWaterQualityContext from "@/app/hooks/useWaterQualityContext";
+import useWaterQualityContext from "@/app/hooks/UseWaterQualityContext";
 
 const ClientDetails: React.FC = () => {
     const { data } = useWaterQualityContext();
+
 
     console.log(data)
 
@@ -12,13 +13,27 @@ const ClientDetails: React.FC = () => {
         return <p>No data available</p>; // Menampilkan pesan jika tidak ada data
     }
 
+    const itemPerPage = 10
+    const [currentPage, setCurrentPage] = useState<number>(0)
+    const totalPages = Math.ceil(data.length / itemPerPage)
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page)
+    }
+
+    const paginatedData = data.slice(
+        (currentPage - 1) * itemPerPage,
+        currentPage * itemPerPage
+    )
+
+
     return (
         <>
             <MainLayout>
-                <div className="overflow-x-auto outline">
-                    <table className="table table-md table-zebra">
+                <div className="overflow-x-auto flex flex-col justify-center items-center">
+                    <table className="table table-sm mt-10 table-zebra w-[80%]">
                         <thead>
-                            <tr>
+                            <tr className="bg-base-200">
                                 <th></th>
                                 <th>PH</th>
                                 <th>TDS</th>
@@ -27,7 +42,7 @@ const ClientDetails: React.FC = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((item, index) => (
+                            {paginatedData.map((item, index) => (
                                 <tr key={item.id}>
                                     <th>{index + 1}</th>
                                     <td>{item.ph}</td>
@@ -38,6 +53,17 @@ const ClientDetails: React.FC = () => {
                             ))}
                         </tbody>
                     </table>
+                    <div className="join">
+                        {Array.from({length : totalPages}, (_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => handlePageChange(i + 1)}
+                                className={`join-item btn btn-md mt-10 ${currentPage === i + 1? 'btn-active' : ''} `}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </MainLayout>
         </>

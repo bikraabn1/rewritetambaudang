@@ -1,5 +1,5 @@
 'use client'
-import { useGSAP } from "./UseGSAP"
+import { useGSAP } from "../hooks/UseGSAP"
 import gsap from "gsap"
 import { useEffect } from "react"
 

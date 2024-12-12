@@ -1,6 +1,6 @@
 'use client'
 import Card from "../components/Card"
-import useWaterQualityContext from "@/app/hooks/useWaterQualityContext"
+import useWaterQualityContext from "@/app/hooks/UseWaterQualityContext"
 import DashboardHeader from "./DashboardHeader"
 
 const Dashboard: React.FC = () => {

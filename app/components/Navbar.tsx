@@ -8,17 +8,13 @@ export default function Navbar() {
   let pathname = usePathname()
 
   useEffect(() => {
-    // Format pathname: jika root, ganti dengan 'dashboard'
     const formattedPathName = pathname === '/' ? 'dashboard' : pathname;
 
-    // Temukan indeks terakhir dari '/' dan potong string
     const lastSlashIndex = formattedPathName.lastIndexOf('/');
     const trimmedPathName = lastSlashIndex !== -1 ? formattedPathName.slice(0, lastSlashIndex) : formattedPathName;
 
-    // Jika pathname kosong setelah pemotongan, set ke 'dashboard'
     const finalPathName = trimmedPathName === '' ? 'dashboard' : trimmedPathName.replace('/', '');
 
-    // Format judul sidebar dengan huruf pertama kapital
     const formattedSideBarTitle = finalPathName.charAt(0).toUpperCase() + finalPathName.slice(1);
 
     setSidebarTitle(formattedSideBarTitle);
