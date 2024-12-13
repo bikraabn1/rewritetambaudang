@@ -1,11 +1,9 @@
-import MainLayout from "@/app/components/MainLayout";
+import ClientTDSDetails from "./ClientTDSDetails";
 
 export default function phDetails(){
     return (
         <>
-            <MainLayout>
-                <div>ini halaman tds</div>
-            </MainLayout>
+            <ClientTDSDetails  />
         </>
     )
 }

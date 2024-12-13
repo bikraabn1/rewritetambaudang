@@ -34,7 +34,7 @@ const ClientDetails: React.FC = () => {
                     <table className="table table-sm mt-16 table-zebra w-[80%]">
                         <thead>
                             <tr className="bg-base-200">
-                                <th></th>
+                                <th>No</th>
                                 <th>PH</th>
                                 <th>TDS</th>
                                 <th>Color</th>

@@ -4,7 +4,7 @@ import Card from "../components/Card"
 import MainLayout from "../components/MainLayout"
 
 
-const ClientPHDetails = () => {
+const ClientTDSDetails = () => {
     const { data } = useWaterQualityContext()
 
     const dataForChart = data.slice(-10)
@@ -13,14 +13,14 @@ const ClientPHDetails = () => {
             <MainLayout>
                 <div className="flex justify-around items-center mt-16">
                     <div>
-                        <Card data={dataForChart} dataKey="ph" title="PH" />
+                        <Card data={dataForChart} dataKey="tds" title="TDS" />
                     </div>
                     <div>
                         <table className="table table-sm table-zebra">
                             <thead>
                                 <tr className="bg-base-200">
                                     <th>No</th>
-                                    <th>PH</th>
+                                    <th>TDS</th>
                                     <th>Time</th>
                                 </tr>
                             </thead>
@@ -28,7 +28,7 @@ const ClientPHDetails = () => {
                                 {dataForChart.map((item, index) => (
                                     <tr key={item.id}>
                                         <th>{index + 1}</th>
-                                        <td>{item.ph}</td>
+                                        <td>{item.tds}</td>
                                         <td>{item.time}</td>
                                     </tr>
                                 ))}
@@ -41,4 +41,4 @@ const ClientPHDetails = () => {
     )
 }
 
-export default ClientPHDetails
+export default ClientTDSDetails
