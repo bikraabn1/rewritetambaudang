@@ -9,8 +9,8 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
     const path = [
         { name: 'Home', path: '/' },
         { name: 'Details', path: '/details' },
-        { name: 'PH Details', path: '/details/ph' },
-        { name: 'TDS Details', path: '/details/tds' },
+        { name: 'PH Details', path: '/ph' },
+        { name: 'TDS Details', path: '/tds' },
     ]
     return (
         <div className="drawer">

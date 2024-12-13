@@ -1,13 +1,9 @@
-import MainLayout from "@/app/components/MainLayout"
+import ClientPHDetails from "./ClientPHDetails"
 
 export default function phDetails(){
     return (
         <>
-            <MainLayout>
-                <div>
-                ini halaman detail ph
-                </div>
-            </MainLayout>
+           <ClientPHDetails />
         </>
     )
 }

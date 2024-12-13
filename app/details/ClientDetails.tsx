@@ -14,7 +14,7 @@ const ClientDetails: React.FC = () => {
     }
 
     const itemPerPage = 10
-    const [currentPage, setCurrentPage] = useState<number>(0)
+    const [currentPage, setCurrentPage] = useState<number>(1)
     const totalPages = Math.ceil(data.length / itemPerPage)
 
     const handlePageChange = (page: number) => {
@@ -31,7 +31,7 @@ const ClientDetails: React.FC = () => {
         <>
             <MainLayout>
                 <div className="overflow-x-auto flex flex-col justify-center items-center">
-                    <table className="table table-sm mt-10 table-zebra w-[80%]">
+                    <table className="table table-sm mt-16 table-zebra w-[80%]">
                         <thead>
                             <tr className="bg-base-200">
                                 <th></th>
@@ -58,7 +58,7 @@ const ClientDetails: React.FC = () => {
                             <button
                                 key={i}
                                 onClick={() => handlePageChange(i + 1)}
-                                className={`join-item btn btn-md mt-10 ${currentPage === i + 1? 'btn-active' : ''} `}
+                                className={`join-item btn btn-md mt-10 ${currentPage === i + 1? 'btn-active' : ''} ${totalPages === 1 ? 'full rounded' : ''}`}
                             >
                                 {i + 1}
                             </button>
