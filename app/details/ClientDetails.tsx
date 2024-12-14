@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import MainLayout from "../components/MainLayout";
 import useWaterQualityContext from "@/app/hooks/UseWaterQualityContext";
-import useExcelWriter from "../hooks/useExcelWriter";
+import useExcelWriter from "../hooks/UseExcelWriter";
+import { MdOutlineFileDownload } from "react-icons/md";
 
 const ClientDetails: React.FC = () => {
     const { data } = useWaterQualityContext();
@@ -35,8 +36,12 @@ const ClientDetails: React.FC = () => {
     return (
         <>
             <MainLayout>
-                <div className="overflow-x-auto flex flex-col justify-center items-center">
-                    <table className="table table-sm mt-16 table-zebra w-[80%]">
+                <div className="overflow-x-auto flex flex-col justify-evenly items-center min-h-[90dvh]">
+                    <button className="btn bg-base-300 rounded-full self-end me-5" onClick={handleExport}>
+                        <span><MdOutlineFileDownload /></span>
+                        <span className="border-l-2 border-neutral ps-1">Download</span>
+                    </button>
+                    <table className="table table-sm table-zebra w-[80%]">
                         <thead>
                             <tr className="bg-base-200">
                                 <th>No</th>
@@ -59,18 +64,17 @@ const ClientDetails: React.FC = () => {
                         </tbody>
                     </table>
                     <div className="join">
-                        {Array.from({length : totalPages}, (_, i) => (
+                        {Array.from({ length: totalPages }, (_, i) => (
                             <button
                                 key={i}
                                 onClick={() => handlePageChange(i + 1)}
-                                className={`join-item btn btn-md mt-10 ${currentPage === i + 1? 'btn-active' : ''} ${totalPages === 1 ? 'full rounded' : ''}`}
+                                className={`join-item btn btn-md mt-10 ${currentPage === i + 1 ? 'btn-active' : ''} ${totalPages === 1 ? 'full rounded' : ''}`}
                             >
                                 {i + 1}
                             </button>
                         ))}
                     </div>
 
-                    <button onClick={handleExport}>test download</button>
                 </div>
             </MainLayout>
         </>
