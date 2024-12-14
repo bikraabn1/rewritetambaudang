@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import MainLayout from "../components/MainLayout";
 import useWaterQualityContext from "@/app/hooks/UseWaterQualityContext";
+import useExcelWriter from "../hooks/useExcelWriter";
 
 const ClientDetails: React.FC = () => {
     const { data } = useWaterQualityContext();
-
 
     console.log(data)
 
@@ -26,6 +26,11 @@ const ClientDetails: React.FC = () => {
         currentPage * itemPerPage
     )
 
+    const { exportToExcel } = useExcelWriter()
+
+    const handleExport = () => {
+        exportToExcel(data, 'data')
+    }
 
     return (
         <>
@@ -64,6 +69,8 @@ const ClientDetails: React.FC = () => {
                             </button>
                         ))}
                     </div>
+
+                    <button onClick={handleExport}>test download</button>
                 </div>
             </MainLayout>
         </>

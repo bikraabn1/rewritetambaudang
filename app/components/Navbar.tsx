@@ -10,10 +10,7 @@ export default function Navbar() {
   useEffect(() => {
     const formattedPathName = pathname === '/' ? 'dashboard' : pathname;
 
-    const lastSlashIndex = formattedPathName.lastIndexOf('/');
-    const trimmedPathName = lastSlashIndex !== -1 ? formattedPathName.slice(0, lastSlashIndex) : formattedPathName;
-
-    const finalPathName = trimmedPathName === '' ? 'dashboard' : trimmedPathName.replace('/', '');
+    const finalPathName = formattedPathName === '' ? 'dashboard' : formattedPathName.replace('/', '');
 
     const formattedSideBarTitle = finalPathName.charAt(0).toUpperCase() + finalPathName.slice(1);
 
