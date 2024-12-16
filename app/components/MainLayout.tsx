@@ -12,7 +12,7 @@ export default function MainLayout({children} : MainLayoutProps) {
         <div>
             <Sidebar>
                 <Navbar />
-                <div>
+                <div className="min-h-[90dvh]">
                     {children}
                 </div>
             </Sidebar>

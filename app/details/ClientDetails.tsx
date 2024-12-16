@@ -29,21 +29,24 @@ const ClientDetails: React.FC = () => {
 
     const { exportToExcel } = useExcelWriter()
 
-    const handleExport = () => {
-        exportToExcel(data, 'data')
+    const handleExport = async () => {
+        await exportToExcel(data, 'data')
     }
 
     return (
         <>
             <MainLayout>
-                <div className="overflow-x-auto flex flex-col justify-evenly items-center min-h-[90dvh]">
-                    <button className="btn bg-base-300 rounded-full self-end me-5" onClick={handleExport}>
+                <div className="w-full flex justify-end mt-5">
+                    <button className="btn bg-base-300 rounded-full me-5" onClick={handleExport}>
                         <span><MdOutlineFileDownload /></span>
                         <span className="border-l-2 border-neutral ps-1">Download</span>
                     </button>
+                </div>
+
+                <div className="overflow-x-auto flex flex-col justify-evenly items-center min-h-[90dvh]">
                     <table className="table table-sm table-zebra w-[80%]">
                         <thead>
-                            <tr className="bg-base-200">
+                            <tr className="bg-base-200 rounded-md">
                                 <th>No</th>
                                 <th>PH</th>
                                 <th>TDS</th>

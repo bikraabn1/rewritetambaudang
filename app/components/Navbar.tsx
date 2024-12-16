@@ -17,10 +17,8 @@ export default function Navbar() {
     setSidebarTitle(formattedSideBarTitle);
   }, [pathname]);
 
-  console.log(pathname)
-
   return (
-    <div className="navbar bg-base-200 h-[10dvh]">
+    <div className="navbar bg-base-100 ">
       <div className="flex-1">
         <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button top-0 left-0">
           <div className="flex-none">

@@ -7,15 +7,14 @@ import MainLayout from "../components/MainLayout"
 const ClientPHDetails = () => {
     const { data } = useWaterQualityContext()
 
-    const dataForChart = data.slice(-10)
+    const dataForChart = data.slice(-20)
     return (
         <>
             <MainLayout>
-                <div className="flex justify-around items-center mt-16">
-                    <div>
-                        <Card data={dataForChart} dataKey="ph" title="PH" />
-                    </div>
-                    <div>
+                <div className="flex justify-center items-center gap-10 mt-5 ">
+                    <Card data={dataForChart} dataKey="ph" title="PH" />
+
+                    <div className="w-[40rem]">
                         <table className="table table-sm table-zebra">
                             <thead>
                                 <tr className="bg-base-200">

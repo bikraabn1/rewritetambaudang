@@ -12,7 +12,7 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     useEffect(() => {
         // Reconnection logic
         const connectWebSocket = () => {
-            const newSocket = new WebSocket('ws://localhost:5000');
+            const newSocket = new WebSocket('ws://localhost:5500');
 
             newSocket.onopen = () => {
                 console.log("WebSocket connection established");
@@ -63,7 +63,7 @@ const WaterQualityProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     if (loading) {
         console.log("loading...")
-        return <Loading />;
+        return <Loading dataFound={data.length > 0}/>;
     }
 
     return (

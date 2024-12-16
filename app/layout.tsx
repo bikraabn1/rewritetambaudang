@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import WaterQualityProvider from "@/app/context/WaterQualityProvider";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -26,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="cupcake">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <WaterQualityProvider>
             {children}

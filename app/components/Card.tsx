@@ -9,7 +9,7 @@ interface CardProps{
 export default function Card(props : CardProps) {
     return (
         <>
-            <div className="card bg-base-300 w-[40rem] min-h-max shadow-xl">
+            <div className="card rounded-md bg-base-300 lg:w-[40%]">
                 <div className="card-body">
                 <Chart data={props.data} dataKey={props.dataKey}/>
                     <div className="card-actions justify-end">
