@@ -3,7 +3,7 @@ import { useEffect, useRef, MutableRefObject } from "react";
 
 type UseGSAPReturn = MutableRefObject<HTMLDivElement | null>;
 
-export function useGSAP(
+export function UseGSAP(
   animationCallback: (element: HTMLDivElement) => void,
   deps: any[] = []
 ): UseGSAPReturn {

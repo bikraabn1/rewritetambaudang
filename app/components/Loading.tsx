@@ -1,5 +1,5 @@
 'use client'
-import { useGSAP } from "../hooks/UseGSAP"
+import { UseGSAP } from "../hooks/UseGSAP"
 import gsap from "gsap"
 import { useEffect, useRef } from "react"
 
@@ -8,7 +8,7 @@ interface LoadingProps {
 }
 
 const Loading: React.FC<LoadingProps> = ({ dataFound }) => {
-    const circleRef = useGSAP(() => {
+    const circleRef = UseGSAP(() => {
         const timeline = gsap.timeline({ repeat: -1 });
 
         timeline

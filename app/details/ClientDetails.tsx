@@ -1,12 +1,12 @@
 'use client'
 import React, { useState } from "react";
 import MainLayout from "../components/MainLayout";
-import useWaterQualityContext from "@/app/hooks/UseWaterQualityContext";
-import useExcelWriter from "../hooks/UseExcelWriter";
+import UseWaterQualityContext from "@/app/hooks/UseWaterQualityContext";
+import UseExcelWriter from "../hooks/UseExcelWriter";
 import { MdOutlineFileDownload } from "react-icons/md";
 
 const ClientDetails: React.FC = () => {
-    const { data } = useWaterQualityContext();
+    const { data } = UseWaterQualityContext();
 
     console.log(data)
 
@@ -27,7 +27,7 @@ const ClientDetails: React.FC = () => {
         currentPage * itemPerPage
     )
 
-    const { exportToExcel } = useExcelWriter()
+    const { exportToExcel } = UseExcelWriter()
 
     const handleExport = async () => {
         await exportToExcel(data, 'data')

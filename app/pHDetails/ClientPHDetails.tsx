@@ -1,11 +1,11 @@
 'use client'
-import useWaterQualityContext from "../hooks/UseWaterQualityContext"
+import UseWaterQualityContext from "../hooks/UseWaterQualityContext"
 import Card from "../components/Card"
 import MainLayout from "../components/MainLayout"
 
 
 const ClientPHDetails = () => {
-    const { data } = useWaterQualityContext()
+    const { data } = UseWaterQualityContext()
 
     const dataForChart = data.slice(-20)
     return (

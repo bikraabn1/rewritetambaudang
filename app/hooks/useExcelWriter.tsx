@@ -2,7 +2,7 @@
 import { useCallback } from 'react';
 import * as ExcelJS from 'exceljs';
 
-const useExcelWriter = () => {
+const UseExcelWriter = () => {
     const exportToExcel = useCallback(async (data: any[], fileName: string) => {
         
         const workbook = new ExcelJS.Workbook();
@@ -32,4 +32,4 @@ const useExcelWriter = () => {
     return { exportToExcel };
 };
 
-export default useExcelWriter;
+export default UseExcelWriter;

@@ -1,9 +1,9 @@
 'use client'
 
-import React, {  useContext } from "react"
+import {  useContext } from "react"
 import { WaterQualityContext, WaterQualityContextType } from "../context/WaterQualityContext"
 
-const useWaterQualityContext = () : WaterQualityContextType => {
+const UseWaterQualityContext = () : WaterQualityContextType => {
     const context = useContext<WaterQualityContextType | undefined>(WaterQualityContext)
     if(!context){
         throw new Error("Data Kosong")
@@ -11,4 +11,4 @@ const useWaterQualityContext = () : WaterQualityContextType => {
     return context
 }
 
-export default useWaterQualityContext
+export default UseWaterQualityContext
