@@ -11,9 +11,9 @@ const Dashboard: React.FC = () => {
 
     return (
         <>
-            <div className="hero bg-base-100 flex flex-col h-[100vh] lg:pt-20 justify-start gap-6">
+            <div className="hero bg-base-100 flex flex-col h-[100vh] pt-10 md:pt-14 lg:pt-18 justify-start gap-4 md:gap-6">
                 <DashboardHeader />
-                <div className="flex flex-col lg:flex-row justify-center items-center gap-6 w-full">
+                <div className="flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-6 w-full ">
                     <Card
                         data={dataForChart}
                         dataKey="ph"

@@ -11,10 +11,10 @@ const ClientPHDetails = () => {
     return (
         <>
             <MainLayout>
-                <div className="flex justify-center items-center gap-10 mt-5 ">
+                <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 mt-5 ">
                     <Card data={dataForChart} dataKey="ph" title="PH" />
 
-                    <div className="w-[40rem]">
+                    <div className="w-[90%] md:w-[50%] pb-20">
                         <table className="table table-sm table-zebra">
                             <thead>
                                 <tr className="bg-base-200">

@@ -23,7 +23,7 @@ const DashboardHeader: React.FC = () => {
     return (
         <>
             {latestData ? (
-                <div className="flex flex-row flex-wrap  lg:justify-center items-center gap-6 bg-base-100 w-full">
+                <div className="flex flex-row flex-wrap justify-center items-center gap-4 md:gap-6 bg-base-100 w-full ">
                     <MiniCard text={`ph :`} data={latestData.ph.toString()}/>
                     <MiniCard text={`tds :`} data={latestData.tds.toString()}/>
                     <MiniCard text={`color :`} data={'#' + latestData.color.toString()} style={{backgroundColor: `#${latestData.color.toString()}`}}/>
