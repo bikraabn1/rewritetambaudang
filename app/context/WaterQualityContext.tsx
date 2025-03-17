@@ -5,6 +5,9 @@ export interface WaterQualityData {
     id: number;
     tds: number;
     ph: number;
+    temp: number;
+    sal: number;
+    doValue: number;
     color: string;
     time: string;
 }

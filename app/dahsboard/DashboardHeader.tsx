@@ -15,7 +15,10 @@ const DashboardHeader: React.FC = () => {
     useEffect(() => {
         if (latestData && latestData.time) {
             const date = new Date(latestData.time);
-            const formattedTime = `${String(date.getUTCHours()).padStart(2, '0')}:${String(date.getUTCMinutes()).padStart(2, '0')}:${String(date.getUTCSeconds()).padStart(2, '0')}`;
+            
+            const wibHours = (date.getUTCHours() + 7) % 24;
+            const formattedTime = `${String(wibHours).padStart(2, '0')}:${String(date.getUTCMinutes()).padStart(2, '0')}:${String(date.getUTCSeconds()).padStart(2, '0')}`;
+            
             setTime(formattedTime);
         }
     }, [latestData]);
@@ -24,10 +27,13 @@ const DashboardHeader: React.FC = () => {
         <>
             {latestData ? (
                 <div className="flex flex-row flex-wrap justify-center items-center gap-4 md:gap-6 bg-base-100 w-full ">
-                    <MiniCard text={`ph :`} data={latestData.ph.toString()}/>
-                    <MiniCard text={`tds :`} data={latestData.tds.toString()}/>
-                    <MiniCard text={`color :`} data={'#' + latestData.color.toString()} style={{backgroundColor: `#${latestData.color.toString()}`}}/>
-                    <MiniCard text={`time :`} data={time}/>
+                    <MiniCard text={`pH :`} data={latestData.ph.toString()}/>
+                    <MiniCard text={`DO :`} data={latestData.doValue.toString()}/>
+                    <MiniCard text={`TDS :`} data={latestData.tds.toString()}/>
+                    <MiniCard text={`Temp :`} data={latestData.temp.toString()}/>
+                    <MiniCard text={`Sal :`} data={latestData.sal.toString()}/>
+                    <MiniCard text={`Color :`} data={'#' + latestData.color.toString()} style={{backgroundColor: `#${latestData.color.toString()}`}}/>
+                    <MiniCard text={`Time :`} data={time}/>
                 </div>
             ) :
                 <div>No Data Available</div>

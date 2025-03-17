@@ -12,7 +12,7 @@ const ClientPHDetails = () => {
         <>
             <MainLayout>
                 <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 mt-5 ">
-                    <Card data={dataForChart} dataKey="ph" title="PH" />
+                    <Card data={dataForChart} dataKey="ph" title="PH" Ymin={0} Ymax={14}/>
 
                     <div className="w-[90%] md:w-[50%] pb-20">
                         <table className="table table-sm table-zebra">

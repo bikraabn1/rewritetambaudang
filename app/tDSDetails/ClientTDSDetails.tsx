@@ -12,7 +12,7 @@ const ClientTDSDetails = () => {
         <>
             <MainLayout>
                 <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 mt-5 ">
-                    <Card data={dataForChart} dataKey="tds" title="TDS" />
+                    <Card data={dataForChart} dataKey="tds" title="TDS" Ymin={0} Ymax={300}/>
 
                     <div className="w-[90%] md:w-[50%] pb-20">
                         <table className="table table-sm table-zebra">

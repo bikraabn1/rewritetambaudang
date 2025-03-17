@@ -3,7 +3,9 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 interface ChartProps {
   data: any[],
-  dataKey: string
+  dataKey: string,
+  Ymin : number,
+  Ymax: number
 }
 
 export default function Chart(props: ChartProps) {
@@ -21,7 +23,7 @@ export default function Chart(props: ChartProps) {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis domain={[props.Ymin, props.Ymax]}/>
         <Tooltip />
         <Line type="monotone" dataKey={props.dataKey} stroke="#8884d8" />
       </LineChart>
